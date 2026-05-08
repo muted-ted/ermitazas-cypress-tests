@@ -10,6 +10,14 @@ End-to-end UI tests for [ermitazas.lt](https://www.ermitazas.lt) — a Lithuania
 | Registration | Password and confirm password do not match                | ✅     |
 | Registration | Email is not in a valid format                            | ✅     |
 | Registration | Required privacy policy checkbox not accepted             | ✅     |
+| Login        | Happy path — valid credentials sign the user in           | ✅     |
+| Login        | Incorrect password is rejected                            | ✅     |
+| Login        | Unknown email is rejected                                 | ✅     |
+| Login        | Empty fields trigger required-field errors                | ✅     |
+
+## Findings
+
+While building login coverage, I noticed that Ermitazas distinguishes between "wrong password" and "email not registered" in its error messages. This is a [user-enumeration weakness (CWE-204)](https://cwe.mitre.org/data/definitions/204.html) — an attacker can determine which emails are registered by attempting to log in. The secure pattern is to show identical errors in both cases. The login spec documents the current behavior; if the site changes to a generic error, the relevant test will fail and should be updated.
 
 More test scenarios are in progress — see the Roadmap below.
 
@@ -76,7 +84,7 @@ npm test
 ## Roadmap
 
 - [x] Negative registration cases (invalid email, password mismatch, missing required fields)
-- [ ] Login flow (success and failure)
+- [x] Login flow (success and failure)
 - [ ] Cart flow (add to cart, update quantity, remove item)
 - [ ] cy.intercept() for API-level assertions on the registration endpoint
 - [ ] GitHub Actions workflow to run tests on every push
