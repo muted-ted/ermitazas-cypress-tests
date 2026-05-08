@@ -4,9 +4,12 @@ End-to-end UI tests for [ermitazas.lt](https://www.ermitazas.lt) — a Lithuania
 
 ## What's tested
 
-| Area | Test | Status |
-| --- | --- | --- |
-| Registration | Successful new user registration | ✅ |
+| Area         | Scenario                                                  | Status |
+| ------------ | --------------------------------------------------------- | ------ |
+| Registration | Happy path — new user registers and reaches their account | ✅     |
+| Registration | Password and confirm password do not match                | ✅     |
+| Registration | Email is not in a valid format                            | ✅     |
+| Registration | Required privacy policy checkbox not accepted             | ✅     |
 
 More test scenarios are in progress — see the Roadmap below.
 
@@ -35,10 +38,10 @@ ermitazas-cypress-tests/
 Selectors and page-specific logic live in `cypress/support/pages/`, not inside the tests. If the site updates a CSS id or rearranges a form, only the Page Object needs to change — every test that uses it keeps working. Tests read closer to plain English:
 
 ```javascript
-RegistrationPage.visit()
-RegistrationPage.fillForm(user)
-RegistrationPage.acceptPrivacyPolicy()
-RegistrationPage.submit()
+RegistrationPage.visit();
+RegistrationPage.fillForm(user);
+RegistrationPage.acceptPrivacyPolicy();
+RegistrationPage.submit();
 ```
 
 ### Custom commands
@@ -72,7 +75,7 @@ npm test
 
 ## Roadmap
 
-- [ ] Negative registration cases (invalid email, password mismatch, missing required fields)
+- [x] Negative registration cases (invalid email, password mismatch, missing required fields)
 - [ ] Login flow (success and failure)
 - [ ] Cart flow (add to cart, update quantity, remove item)
 - [ ] cy.intercept() for API-level assertions on the registration endpoint
