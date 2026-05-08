@@ -4,5 +4,9 @@
     "lastName": "Testauskas",
     "phone": "+37061111111",
     "password": "Testing123!"
+  },
+  "loginUser": {
+    "email": "puhalano@mailinator.com",
+    "password": "Pa$$w0rd!"
   }
 }
