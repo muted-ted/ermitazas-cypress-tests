@@ -7,6 +7,7 @@ class RegistrationPage {
   get repeatPasswordInput() { return cy.get('#input-register-form-repeatPassword') }
   get privacyCheckbox() { return cy.get('#checkbox-register-form-privacy') }
   get submitButton()   { return cy.get('[form="register-form"]') }
+  get errorMessages() { return cy.get('[role="alert"]') }
 
   visit() {
     cy.visit('/registruotis')
