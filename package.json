@@ -1,0 +1,16 @@
+{
+  "name": "ermitazas-cypress-tests",
+  "version": "1.0.0",
+  "description": "End-to-end UI tests for ermitazas.lt — written in Cypress as a portfolio project for a Junior QA Engineer role.",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "cypress run"
+  },
+  "keywords": ["cypress", "qa", "automation", "e2e-testing", "portfolio"],
+  "author": "Tadas Murauskas",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^15.14.2"
+  }
+}
