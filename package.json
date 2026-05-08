@@ -1,13 +1,13 @@
 {
   "name": "ermitazas-cypress-tests",
   "version": "1.0.0",
-  "description": "End-to-end UI tests for ermitazas.lt — written in Cypress as a portfolio project for a Junior QA Engineer role.",
+  "description": "End-to-end UI tests for ermitazas.lt, an e-commerce site, written in Cypress with the Page Object Model.",
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test": "cypress run"
   },
-  "keywords": ["cypress", "qa", "automation", "e2e-testing", "portfolio"],
+  "keywords": ["cypress", "qa", "automation", "e2e-testing", "page-object-model"],
   "author": "Tadas Murauskas",
   "license": "ISC",
   "devDependencies": {
