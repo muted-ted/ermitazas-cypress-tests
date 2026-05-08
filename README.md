@@ -14,6 +14,9 @@ End-to-end UI tests for [ermitazas.lt](https://www.ermitazas.lt) — a Lithuania
 | Login        | Incorrect password is rejected                            | ✅     |
 | Login        | Unknown email is rejected                                 | ✅     |
 | Login        | Empty fields trigger required-field errors                | ✅     |
+| Cart         | Product appears in cart after adding              | ✅     |
+| Cart         | Quantity increases when + button is clicked        | ✅     |
+| Cart         | Product is removed when delete button is clicked   | ✅     |
 
 ## Findings
 
@@ -85,7 +88,7 @@ npm test
 
 - [x] Negative registration cases (invalid email, password mismatch, missing required fields)
 - [x] Login flow (success and failure)
-- [ ] Cart flow (add to cart, update quantity, remove item)
+- [x] Cart flow (add to cart, update quantity, remove item)
 - [ ] cy.intercept() for API-level assertions on the registration endpoint
 - [ ] GitHub Actions workflow to run tests on every push
 
