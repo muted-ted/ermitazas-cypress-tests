@@ -30,7 +30,12 @@ More test scenarios are in progress — see the Roadmap below.
 ermitazas-cypress-tests/
 ├── cypress/
 │   ├── e2e/
+│   │   ├── cart/
+│   │   │   └── cart.cy.js
+│   │   ├── login/
+│   │   │   └── login.cy.js
 │   │   └── registration/
+│   │       ├── registration-validation.cy.js
 │   │       └── successful-registration.cy.js
 │   ├── fixtures/
 │   │   └── users.json
@@ -38,6 +43,8 @@ ermitazas-cypress-tests/
 │       ├── commands.js
 │       ├── e2e.js
 │       └── pages/
+│           ├── CartPage.js
+│           ├── LoginPage.js
 │           └── RegistrationPage.js
 ├── cypress.config.js
 ├── package.json
