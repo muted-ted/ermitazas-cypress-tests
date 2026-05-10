@@ -99,6 +99,10 @@ npm test
 - [x] cy.intercept() for API-level assertions on the registration endpoint
 - [x] GitHub Actions workflow to run tests on every push
 
+## Previously fixed findings
+
+While testing the registration API with Postman, I discovered that passwords of 100+ characters were accepted with no server-side length validation — a potential bcrypt DoS vector (CWE-400). The endpoint has since been patched and now enforces a maximum password length.
+
 ## About
 
 This project is part of my portfolio as I transition from logistics operations management into QA engineering. After completing CodeAcademy's 240-hour Information Systems Testing program in early 2026, I built this repo to demonstrate practical Cypress skills against a real production site.
