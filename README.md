@@ -103,6 +103,12 @@ npm test
 
 While testing the registration API with Postman, I discovered that passwords of 100+ characters were accepted with no server-side length validation — a potential bcrypt DoS vector (CWE-400). The endpoint has since been patched and now enforces a maximum password length.
 
+## Additional findings
+
+**Long password accepted (CWE-400 — potential bcrypt DoS)**
+
+The registration endpoint accepts passwords of 100+ characters with no server-side length validation. This is a potential Denial of Service vector — bcrypt and similar hashing algorithms are computationally expensive by design, and an attacker sending thousands of requests with extremely long passwords could force the server to spend excessive CPU time hashing them. OWASP recommends enforcing a maximum password length of 64-128 characters. Confirmed via Postman against the live API.
+
 ## About
 
 This project is part of my portfolio as I transition from logistics operations management into QA engineering. After completing CodeAcademy's 240-hour Information Systems Testing program in early 2026, I built this repo to demonstrate practical Cypress skills against a real production site.
