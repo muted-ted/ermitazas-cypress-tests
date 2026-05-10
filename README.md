@@ -105,9 +105,9 @@ While testing the registration API with Postman, I discovered that passwords of 
 
 ## Additional findings
 
-**Long password accepted (CWE-400 — potential bcrypt DoS)**
+**Password length boundary observation**
 
-The registration endpoint accepts passwords of 100+ characters with no server-side length validation. This is a potential Denial of Service vector — bcrypt and similar hashing algorithms are computationally expensive by design, and an attacker sending thousands of requests with extremely long passwords could force the server to spend excessive CPU time hashing them. OWASP recommends enforcing a maximum password length of 64-128 characters. Confirmed via Postman against the live API.
+API testing confirmed the registration endpoint enforces a minimum of 8 and maximum of 128 characters. The 128-character upper limit sits at the top of OWASP recommendations (64-128 chars). While not a confirmed vulnerability, passwords at this length increase bcrypt computation time. A stricter limit (e.g. 72 characters — bcrypt native block size) would reduce theoretical DoS exposure.
 
 ## About
 
