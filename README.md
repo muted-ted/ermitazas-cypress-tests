@@ -96,7 +96,7 @@ npm test
 - [x] Negative registration cases (invalid email, password mismatch, missing required fields)
 - [x] Login flow (success and failure)
 - [x] Cart flow (add to cart, update quantity, remove item)
-- [ ] cy.intercept() for API-level assertions on the registration endpoint
+- [x] cy.intercept() for API-level assertions on the registration endpoint
 - [x] GitHub Actions workflow to run tests on every push
 
 ## About
