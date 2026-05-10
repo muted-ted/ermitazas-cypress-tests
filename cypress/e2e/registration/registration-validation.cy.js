@@ -58,4 +58,24 @@ describe('User registration — validation errors', () => {
     );
     cy.url().should('include', '/registruotis');
   });
-});
+
+  // Password length boundary: both UI and API enforce 8-128 character range.
+  // 128-char limit sits at the top of OWASP recommendations. See README findings.
+  it('rejects passwords longer than 128 characters', () => {
+    const longPassword = 'A'.repeat(129)
+    RegistrationPage.fillForm({
+      firstName: 'Testeris',
+      lastName: 'Testauskas',
+      email: `test${Date.now()}@gmail.com`,
+      phone: '+37061111111',
+      password: longPassword,
+      confirmPassword: longPassword,
+    })
+    RegistrationPage.acceptPrivacyPolicy()
+    RegistrationPage.submit()
+
+    // This assertion currently fails — the site accepts the long password.
+    // When patched, this test should pass.
+    RegistrationPage.errorMessages.should('be.visible')
+  })
+})
