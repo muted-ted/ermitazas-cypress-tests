@@ -97,7 +97,7 @@ npm test
 - [x] Login flow (success and failure)
 - [x] Cart flow (add to cart, update quantity, remove item)
 - [ ] cy.intercept() for API-level assertions on the registration endpoint
-- [ ] GitHub Actions workflow to run tests on every push
+- [x] GitHub Actions workflow to run tests on every push
 
 ## About
 
